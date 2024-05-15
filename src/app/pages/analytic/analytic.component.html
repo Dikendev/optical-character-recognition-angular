@@ -1,0 +1,45 @@
+<div class="flex flex-col gap-6">
+  <div class="flex flex-col items-center w-full bg-amber-600">
+    <div class="flex flex-col items-center w-full bg-amber-600">
+      <label class="hover:cursor-pointer" for="file-upload">{{
+        attachment
+      }}</label>
+      <input
+        id="file-upload"
+        type="file"
+        style="display: none"
+        multiple
+        (change)="onFileSelected($event.target)"
+      />
+    </div>
+    {{ getSelectedText() }}
+  </div>
+
+  <label>{{ wordsToSelectText }}</label>
+  <div class="bg-purple-700 w-full h-[10rem] flex flex-row">
+    <div class="flex flex-col">
+      <textarea
+        #text
+        class="w-[30rem] h-[5rem] bg-white border-2 border-black rounded-lg"
+        type="text"
+        (keyup)="validateWords(text.value)"
+      ></textarea>
+      <button (click)="sendToAnalytics()">send</button>
+    </div>
+
+    <div>
+      @if(wordsSelected.length > 0) {
+      <h1>Palavras selecionadas</h1>
+      <div class="flex flex-row flex-wrap gap-4 max-h-[9rem] overflow-y-auto">
+        @for (word of wordsSelected; track $index) {
+
+        <app-badge [wordSelected]="word"> </app-badge>
+
+        }
+      </div>
+      } @else {
+      <h1>Nenhuma palavra selecionada</h1>
+      }
+    </div>
+  </div>
+</div>
