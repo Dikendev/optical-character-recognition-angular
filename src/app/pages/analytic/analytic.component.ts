@@ -10,7 +10,6 @@ import { CandidateStatusList } from '../../services/interfaces/candidate-status.
   standalone: true,
   imports: [BadgeComponent],
   templateUrl: './analytic.component.html',
-  styleUrl: './analytic.component.css',
 })
 export class AnalyticComponent {
   attachment: string = 'select pdf or image';
