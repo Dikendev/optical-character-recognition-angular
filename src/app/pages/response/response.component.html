@@ -1,0 +1,88 @@
+<div class="flex flex-col justify-center">
+  <div
+    class="flex justify-center mt-6 max-lg:mt-11 lg:pt-6 lg:pb-2 lg:gap-4 sm:gap-0 sm:flex-col lg:flex-row"
+  >
+    <div class="flex flex-col gap-2">
+      <h1 class="self-center justify-center text-2xl font-bold text-yellow-700">
+        Resultado
+      </h1>
+
+      @for (response of candidateStatusList; track $index) {
+
+      <div
+        class="flex flex-col items-center justify-center col-span-2 gap-2 lg:gap-4"
+      >
+        <h1>Documento {{ response.fileName }}</h1>
+
+        <div class="flex flex-col justify-center gap-1">
+          <h1 class="text-lg font-bold">{{ foundWordsMessage }}:</h1>
+          <div
+            class="grid grid-cols-4 gap-4 lg:grid-cols-6 sm:gap-2 px-4 lg:min-w-[55rem] py-2 overflow-y-scroll border-2 border-blue-900 rounded-lg max-sm:grid-cols-3 overflow-clip max-h-[7.5rem] lg:gap-3"
+          >
+            @for (documentWords of response.documentWords; track $index) {
+            <app-badge
+              [wordSelected]="documentWords"
+              [color]="'primary'"
+            ></app-badge>
+
+            }
+          </div>
+        </div>
+
+        <!-- search words -->
+        <div class="flex flex-col justify-center gap-1">
+          <h1 class="text-lg font-bold">Palavras buscadas:</h1>
+          <div
+            class="grid grid-cols-4 gap-4 lg:grid-cols-6 sm:gap-2 px-4 lg:min-w-[55rem] py-2 overflow-y-scroll border-2 border-blue-900 rounded-lg max-sm:grid-cols-3 overflow-clip max-h-[7.5rem] lg:gap-3"
+          >
+            @for (word of response.searchWords; track $index) {
+            <app-badge [wordSelected]="word" [color]="'primary'"></app-badge>
+            }
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-center gap-1">
+          <h1 class="text-lg font-bold">Encontradas:</h1>
+          <div
+            class="grid grid-cols-4 gap-4 lg:grid-cols-6 sm:gap-2 px-4 lg:min-w-[55rem] py-2 overflow-y-scroll border-2 border-blue-900 rounded-lg max-sm:grid-cols-3 overflow-clip max-h-[7.5rem] lg:gap-3"
+          >
+            @for (wordFound of response.foundWords; track $index) {
+            <app-badge
+              [wordSelected]="wordFound"
+              [color]="'success'"
+            ></app-badge>
+            }
+          </div>
+        </div>
+        <!-- found words -->
+
+        <h1>
+          <span class="font-bold">{{ response.percent }}%</span>
+          das palavras chaves foram encontradas
+        </h1>
+      </div>
+      }
+    </div>
+
+    <!-- <div
+      class="w-[40%] h-[40%] min-w-[30%] min-h-[30%] hidden lg:block self-center"
+    >
+      <img
+        class="hidden w-full h-full lg:block"
+        src="../../../assets/images/response_ia.jpeg"
+        alt=""
+        srcset=""
+      />
+    </div> -->
+  </div>
+
+  <div class="flex flex-col items-center justify-center max-lg:mt-4">
+    <a
+      class="underline transition-all ease-in-out hover:text-blue-500 hover:font-bold"
+      href="https://github.com/Dikendev/optical-character-recognition"
+      target="_blank"
+      rel="external"
+      >{{ gitHubText }}</a
+    >
+  </div>
+</div>
