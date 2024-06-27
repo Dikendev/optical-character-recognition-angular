@@ -18,7 +18,7 @@ export const routes: Routes = [
     path: 'response',
     data: {
       title: 'Response',
-      showInNavBar: true,
+      showInNavBar: false,
     },
     component: ResponseComponent,
   },
