@@ -16,7 +16,7 @@ export class ServerService {
   }
 
   ocr(files: File[], words: string[]): Observable<CandidateStatusList> {
-    const url = `${environment.apiUrl}/api/ocr/recognize-words`;
+    const url = `${environment.apiUrl}/ocr/recognize-words`;
 
     const formData = new FormData();
     files.forEach((file, _) => {
