@@ -1,5 +1,9 @@
 <div
-  class="w-[6rem] max-w-[6rem] overflow-x-auto h-[2rem] p-1 justify-center flex items-center bg-red-600 rounded-xl"
+  class="w-[8rem] max-w-[8rem] overflow-x-auto h-[2rem] p-1 justify-center flex items-center {{
+    badgeColor
+  }} rounded-xl shadow-[3.0px_3.0px_3.0px_rgba(0,0,0,0.34)]"
 >
-  <div>{{ wordSelected }}</div>
+  <div class="font-semibold {{ textColor }} ">
+    {{ wordSelected | uppercase }}
+  </div>
 </div>
