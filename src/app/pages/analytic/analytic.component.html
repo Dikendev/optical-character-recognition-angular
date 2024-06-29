@@ -1,9 +1,12 @@
 <div class="flex flex-col gap-6">
-  <div class="flex flex-col items-center w-full bg-amber-600">
-    <div class="flex flex-col items-center w-full bg-amber-600">
-      <label class="hover:cursor-pointer" for="file-upload">{{
-        attachment
-      }}</label>
+  <label class="flex justify-center font-semibold">{{ firstStep }}</label>
+  <div class="flex flex-col items-center w-full gap-2">
+    <div class="flex flex-col items-center w-full">
+      <label
+        class="px-2 py-1 rounded-md hover:cursor-pointer text-white bg-[#0077b6] shadow-[3.0px_3.0px_3.0px_rgba(0,0,0,0.34)] hover:scale-110 hover:bg-[#03045e] duration-300 hover:-translate-y-[0.2rem] ease-in-out delay-75"
+        for="file-upload"
+        >{{ attachment }}</label
+      >
       <input
         id="file-upload"
         type="file"
@@ -15,8 +18,12 @@
     {{ getSelectedText() }}
   </div>
 
-  <label>{{ wordsToSelectText }}</label>
-  <div class="bg-purple-700 w-full h-[10rem] flex flex-row">
+  <label class="flex flex-col items-center justify-center font-semibold"
+    >{{ secondStep
+    }}<span class="text-[#d62828]">{{ observation }}</span></label
+  >
+
+  <div class="flex flex-col items-center justify-center w-full gap-2">
     <div class="flex flex-col">
       <textarea
         #text
@@ -24,17 +31,24 @@
         type="text"
         (keyup)="validateWords(text.value)"
       ></textarea>
-      <button (click)="sendToAnalytics()">send</button>
+      <div class="flex justify-center p-2">
+        <button
+          class="px-2 py-1 rounded-md whitespace-nowrap focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-white bg-[#0077b6] shadow-[3.0px_3.0px_3.0px_rgba(0,0,0,0.34)] hover:scale-110 hover:bg-[#03045e] duration-300 hover:-translate-y-[0.2rem] ease-in-out delay-75"
+          (click)="sendToAnalytics()"
+        >
+          Analisar curriculo
+        </button>
+      </div>
     </div>
 
-    <div>
+    <div class="flex flex-col items-center justify-center">
       @if(wordsSelected.length > 0) {
       <h1>Palavras selecionadas</h1>
-      <div class="flex flex-row flex-wrap gap-4 max-h-[9rem] overflow-y-auto">
+      <div
+        class="grid grid-cols-4 gap-4 lg:grid-cols-6 sm:gap-2 px-4 lg:min-w-[55rem] py-2 overflow-y-scroll border-2 border-blue-900 rounded-lg max-sm:grid-cols-3 overflow-clip max-h-[7.5rem] lg:gap-3"
+      >
         @for (word of wordsSelected; track $index) {
-
-        <app-badge [wordSelected]="word"> </app-badge>
-
+        <app-badge [wordSelected]="word" [color]="'primary'"></app-badge>
         }
       </div>
       } @else {

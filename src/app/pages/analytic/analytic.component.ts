@@ -12,6 +12,11 @@ import { CandidateStatusList } from '../../services/interfaces/candidate-status.
   templateUrl: './analytic.component.html',
 })
 export class AnalyticComponent {
+  firstStep: string = '1* Selecionar curriculo';
+  secondStep: string = '2* Selecionar palavras';
+  observation: string =
+    'Observação: As palavras devem ser separadas por vírgula';
+
   attachment: string = 'select pdf or image';
   wordsToSelectText: string = 'Select the words to analise';
 
