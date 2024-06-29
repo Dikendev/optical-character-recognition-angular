@@ -1,9 +1,9 @@
-<div class="w-[35rem]">
+<div class="w-full">
   @if (textTitle) {
-  <h1 class="text-xl">{{ title }}</h1>
+  <h1 class="text-xl font-bold text-yellow-500">{{ title }}</h1>
   }
 
-  <h1 class="text-justify {{ customCssClass }}">
+  <h1 class="{{ customCss }}">
     {{ text }}
   </h1>
 </div>
