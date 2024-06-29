@@ -1,20 +1,10 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-  viewChild,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { GreetingsComponent } from './greetings/greetings.component';
 import { AnalyticComponent } from '../analytic/analytic.component';
 import { FeatureComponent } from './feature/feature.component';
 import * as THREE from 'three';
-
-import Stats from 'three/examples/jsm/libs/stats.module.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import GUI from 'lil-gui';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +13,6 @@ import GUI from 'lil-gui';
     ButtonComponent,
     GreetingsComponent,
     AnalyticComponent,
-    ButtonComponent,
     FeatureComponent,
   ],
   templateUrl: './home.component.html',
