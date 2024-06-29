@@ -1,0 +1,13 @@
+#canvas {
+  position: relative;
+  width: 600px; /* Match the width used in initThree */
+  height: 600px; /* Match the height used in initThree */
+}
+
+.tooltip {
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid rgb(255, 0, 0);
+  display: none;
+}
