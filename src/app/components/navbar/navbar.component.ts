@@ -4,10 +4,13 @@ import { Route, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterOutlet],
+  imports: [RouterLink],
   standalone: true,
   template: `
-    <nav class="bg-black" aria-label="Main Navigation">
+    <nav
+      class="fixed top-0 right-0 left-0 z-50 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-600 bg-opacity-70"
+      aria-label="Main Navigation"
+    >
       <ul class="flex flex-row justify-between gap-2 px-2 py-2 text-white">
         <div class="flex flex-row gap-1">
           @for (route of routes; track $index) {
@@ -16,14 +19,8 @@ import { Route, Router, RouterLink, RouterOutlet } from '@angular/router';
           </li>
           }
         </div>
-
-        <li>
-          <a>Login</a>
-        </li>
       </ul>
     </nav>
-
-    <router-outlet></router-outlet>
   `,
 })
 export class NavbarComponent implements OnInit {
