@@ -86,6 +86,7 @@ export class AnalyticComponent {
   }
 
   sendToAnalytics() {
+    this.systemUnderMaintenance(true);
     this.ocr(this.filesSelected, this.wordsSelected);
   }
 
@@ -125,5 +126,13 @@ export class AnalyticComponent {
 
   goToResponsePage() {
     this.router.navigate(['/response']);
+  }
+
+  systemUnderMaintenance(underMaintenance: boolean): void {
+    if (underMaintenance) {
+      return window.alert(
+        'Servico em manutenção temporária, tentar novamente mais tarde'
+      );
+    }
   }
 }

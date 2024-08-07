@@ -58,7 +58,6 @@ export class BadgeComponent {
         return BADGE_COLORS.SUCCESS;
       default:
         this.textColor = BUTTON_COLORS.SECONDARY;
-
         return BADGE_COLORS.SECONDARY;
     }
   }
